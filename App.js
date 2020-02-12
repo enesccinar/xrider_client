@@ -5,6 +5,9 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 
 import SignupScreen from './src/screens/SignupScreen'
 
+import { Provider as AuthProvider } from './src/context/AuthContext'
+import { setNavigator } from './src/navigationRef'
+
 const switchNavigator = createSwitchNavigator({
   loginFlow: createStackNavigator({
     Signup: SignupScreen
@@ -14,5 +17,9 @@ const switchNavigator = createSwitchNavigator({
 const App = createAppContainer(switchNavigator)
 
 export default () => {
-  return <App />
+  return (
+    <AuthProvider>
+      <App ref={(navigator) => { setNavigator(navigator) }} />
+    </AuthProvider>
+  )
 }
