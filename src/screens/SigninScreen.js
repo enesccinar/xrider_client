@@ -5,28 +5,28 @@ import AuthForm from '../components/AuthForm'
 import NavLink from '../components/NavLink'
 import { Context as AuthContext } from '../context/AuthContext'
 
-const SignupScreen = ({ navigation }) => {
+const SigninScreen = ({ navigation }) => {
 
-    const { state, signup, clearErrorMessage } = useContext(AuthContext)
+    const { state, signin, clearErrorMessage } = useContext(AuthContext)
 
     return (
         <View style={styles.container}>
             <NavigationEvents onWillBlur={clearErrorMessage} />
             <AuthForm
-                headerText="Sign Up"
+                headerText="Login"
                 errorMessage={state.errorMessage}
-                submitButtonText="Sign Up"
-                onSubmit={signup}
+                submitButtonText="Login"
+                onSubmit={signin}
             />
             <NavLink
-                routeName="Signin"
-                text="Have an account? Sign in now!"
+                routeName="Signup"
+                text="Don’t have an account? Sign up now!"
             />
         </View>
     )
 }
 
-SignupScreen.navigationOptions = () => {
+SigninScreen.navigationOptions = () => {
     return {
         header: null
     }
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default SignupScreen
+export default SigninScreen
