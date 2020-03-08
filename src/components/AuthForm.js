@@ -32,7 +32,11 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
             <Spacer />
             {errorMessage ? <Text style={styles.errorMessage}> {errorMessage}</Text> : null}
             <Spacer>
-                <Button buttonStyle={styles.submit} title={submitButtonText} onPress={() => onSubmit({ email, password })} />
+                <Button
+                    titleStyle={styles.submitText}
+                    buttonStyle={styles.submit}
+                    title={submitButtonText}
+                    onPress={() => onSubmit({ email, password })} />
             </Spacer>
         </>
     )
@@ -47,9 +51,12 @@ const styles = StyleSheet.create({
     },
     submit: {
         backgroundColor: '#5D3EA8',
-        height: 60,
+        height: 60
+    },
+    submitText: {
         fontSize: 16,
-        fontWeight: "600"
+        color: 'white',
+        fontWeight: '500'
     },
     input: {
         borderColor: '#B1ABAB',

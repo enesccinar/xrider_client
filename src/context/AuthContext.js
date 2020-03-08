@@ -35,26 +35,28 @@ const clearErrorMessage = dispatch => () => {
 
 const signup = dispatch => async ({ email, password }) => {
     try {
-        const response = await trackerApi.post('/signup', { email, password })
+        const response = await trackerApi.post('/users', { email, password })
         await AsyncStorage.setItem('token', response.data.token)
 
         dispatch({ type: 'signin', payload: response.data.token })
 
         navigate('TrackList')
     } catch (e) {
+        console.log(e)
         dispatch({ type: 'add_error', payload: 'Something went wrong with sign up!' })
     }
 }
 
 const signin = dispatch => async ({ email, password }) => {
     try {
-        const response = await trackerApi.post('/signin', { email, password })
+        const response = await trackerApi.post('/users/login', { email, password })
         await AsyncStorage.setItem('token', response.data.token)
 
         dispatch({ type: 'signin', payload: response.data.token })
-
-        navigate('TrackList')
+        console.log('signed in! token: ' + response.data.token)
+        // navigate('TrackList')
     } catch (e) {
+        console.log(e)
         dispatch({ type: 'add_error', payload: 'Something went wrong with sign in!' })
     }
 }
