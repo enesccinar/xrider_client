@@ -1,10 +1,9 @@
 import React, { useContext } from 'react'
-import { Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, Image } from 'react-native'
 import { Button } from 'react-native-elements'
 import { SafeAreaView } from 'react-navigation'
 import Spacer from '../components/Spacer'
 import { Context as AuthContext } from '../context/AuthContext'
-import { FontAwesome } from '@expo/vector-icons'
 
 const AccountScreen = () => {
 
@@ -22,7 +21,11 @@ const AccountScreen = () => {
 
 AccountScreen.navigationOptions = {
     title: 'Account',
-    tabBarIcon: <FontAwesome name="gear" size={20} />
+    tabBarIcon: ({focused}) => (
+        focused
+        ? <Image source={require('../../assets/account.png')} />
+        : <Image source={require('../../assets/account-inactive.png')} />
+    )
 }
 
 const styles = StyleSheet.create({})

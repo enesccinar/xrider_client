@@ -8,6 +8,8 @@ import SigninScreen from './src/screens/SigninScreen'
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen'
 import AccountScreen from './src/screens/AccountScreen'
 import TrackListScreen from './src/screens/TrackListScreen'
+import TrackRecordListScreen from './src/screens/TrackRecordListScreen'
+import TrackRecordCreateScreen from './src/screens/TrackRecordCreateScreen'
 
 import { Provider as AuthProvider } from './src/context/AuthContext'
 import { setNavigator } from './src/navigationRef'
@@ -21,6 +23,8 @@ const switchNavigator = createSwitchNavigator({
   }),
   mainFlow: createBottomTabNavigator({
     trackList: TrackListScreen,
+    trackRecordList: TrackRecordListScreen,
+    trackRecordCreate: TrackRecordCreateScreen,
     account: AccountScreen
   })
 })

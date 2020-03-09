@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, Image } from 'react-native'
 
 const TrackListScreen = ({ navigation }) => {
     return (
@@ -10,7 +10,12 @@ const TrackListScreen = ({ navigation }) => {
 }
 
 TrackListScreen.navigationOptions = {
-    title: 'Tracks'
+    title: 'Tracks',
+    tabBarIcon: ({focused}) => (
+        focused
+        ? <Image source={require('../../assets/home.png')} />
+        : <Image source={require('../../assets/home-inactive.png')} />
+    )
 }
 
 const styles = StyleSheet.create({})
