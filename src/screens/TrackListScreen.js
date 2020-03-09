@@ -23,7 +23,6 @@ const TrackListScreen = ({ navigation }) => {
                 renderItem={({ item }) => {
                     return (
                         <TouchableOpacity>
-                            {/* <ListItem chevron title={item.trackName} subtitle={item.trackType} /> */}
                             <View style={styles.trackListItem}>
                                 <Image source={require('../../assets/sample-photo.png')} />
                                 <View style={styles.cardTexts}>
