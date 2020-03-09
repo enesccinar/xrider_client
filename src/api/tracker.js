@@ -10,7 +10,7 @@ instance.interceptors.request.use(
         const token = await AsyncStorage.getItem('token')
 
         if (token)
-            config.headers.Authorizationn = `Bearer ${token}`
+            config.headers.Authorization = `Bearer ${token}`
 
         return config
     },

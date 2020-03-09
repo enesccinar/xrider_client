@@ -12,6 +12,7 @@ import TrackRecordListScreen from './src/screens/TrackRecordListScreen'
 import TrackRecordCreateScreen from './src/screens/TrackRecordCreateScreen'
 
 import { Provider as AuthProvider } from './src/context/AuthContext'
+import { Provider as TrackProvider } from './src/context/TrackContext'
 import { setNavigator } from './src/navigationRef'
 
 
@@ -33,8 +34,10 @@ const App = createAppContainer(switchNavigator)
 
 export default () => {
   return (
-    <AuthProvider>
-      <App ref={(navigator) => { setNavigator(navigator) }} />
-    </AuthProvider>
+    <TrackProvider>
+      <AuthProvider>
+        <App ref={(navigator) => { setNavigator(navigator) }} />
+      </AuthProvider>
+    </TrackProvider>
   )
 }
