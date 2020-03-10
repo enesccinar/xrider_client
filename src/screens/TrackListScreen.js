@@ -49,7 +49,7 @@ const TrackListScreen = ({ isFocused }) => {
 }
 
 TrackListScreen.navigationOptions = {
-    title: 'Tracks',
+    title: 'Trails',
     tabBarOptions: {
         activeTintColor: '#6540F5',
     },
