@@ -11,6 +11,9 @@ const TrackRecordListScreen = ({ navigation }) => {
 
 TrackRecordListScreen.navigationOptions = {
     title: 'Records',
+    tabBarOptions: {
+        activeTintColor: '#6540F5',
+    },
     tabBarIcon: ({focused}) => (
         focused
         ? <Image source={require('../../assets/tracks.png')} />

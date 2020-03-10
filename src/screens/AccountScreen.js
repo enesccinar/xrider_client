@@ -21,10 +21,13 @@ const AccountScreen = () => {
 
 AccountScreen.navigationOptions = {
     title: 'Account',
-    tabBarIcon: ({focused}) => (
+    tabBarOptions: {
+        activeTintColor: '#6540F5',
+    },
+    tabBarIcon: ({ focused }) => (
         focused
-        ? <Image source={require('../../assets/account.png')} />
-        : <Image source={require('../../assets/account-inactive.png')} />
+            ? <Image source={require('../../assets/account.png')} />
+            : <Image source={require('../../assets/account-inactive.png')} />
     )
 }
 

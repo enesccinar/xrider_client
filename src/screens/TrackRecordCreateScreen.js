@@ -10,7 +10,10 @@ const TrackRecordCreateScreen = ({ navigation }) => {
 }
 
 TrackRecordCreateScreen.navigationOptions = {
-    title: 'Add',
+    title: 'Add Record',
+    tabBarOptions: {
+        activeTintColor: '#6540F5',
+    },
     tabBarIcon: ({focused}) => (
         focused
         ? <Image source={require('../../assets/create.png')} />

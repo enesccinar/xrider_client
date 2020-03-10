@@ -1,24 +1,33 @@
-import React, { useContext } from 'react'
+import React, { useContext, useCallback } from 'react'
 import { Text, View, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native'
-import { Overlay } from 'react-native-elements'
-import { NavigationEvents } from 'react-navigation'
+import { NavigationEvents, withNavigationFocus } from 'react-navigation'
 import { Context as TrackContext } from '../context/TrackContext'
-import MapView from 'react-native-maps'
+import { Context as LocationContext } from '../context/LocationContext'
+import useLocation from '../hooks/useLocation'
+import Map from '../components/Map'
 
 
-const TrackListScreen = ({ navigation }) => {
+const TrackListScreen = ({ isFocused }) => {
 
-    const { state, fetchTracks } = useContext(TrackContext)
+    const { state: { tracks }, fetchTracks } = useContext(TrackContext)
+    const { state: { recording }, addLocation } = useContext(LocationContext)
+
+    const callback = useCallback(location => {
+        console.log(location)
+        addLocation(location, recording)
+    }, [recording])
+
+    const [err] = useLocation(isFocused || recording, callback)
 
     return (
         <View style={styles.container}>
-            <MapView
-                style={styles.map}></MapView>
             <NavigationEvents onWillFocus={fetchTracks} />
+            <Map />
+            {err ? <Text>Please enable location services!</Text> : null}
             <FlatList
                 horizontal={true}
                 style={styles.bottom}
-                data={state}
+                data={tracks}
                 keyExtractor={item => item._id}
                 renderItem={({ item }) => {
                     return (
@@ -41,6 +50,9 @@ const TrackListScreen = ({ navigation }) => {
 
 TrackListScreen.navigationOptions = {
     title: 'Tracks',
+    tabBarOptions: {
+        activeTintColor: '#6540F5',
+    },
     tabBarIcon: ({ focused }) => (
         focused
             ? <Image source={require('../../assets/home.png')} />
@@ -82,4 +94,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default TrackListScreen
+export default withNavigationFocus(TrackListScreen)
