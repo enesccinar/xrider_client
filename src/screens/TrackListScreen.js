@@ -1,3 +1,5 @@
+// import '../_mockLocation'
+
 import React, { useContext, useCallback } from 'react'
 import { Text, View, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native'
 import { NavigationEvents, withNavigationFocus } from 'react-navigation'
@@ -22,7 +24,7 @@ const TrackListScreen = ({ isFocused }) => {
     return (
         <View style={styles.container}>
             <NavigationEvents onWillFocus={fetchTracks} />
-            <Map />
+            <Map tracks={tracks} />
             {err ? <Text>Please enable location services!</Text> : null}
             <FlatList
                 horizontal={true}
