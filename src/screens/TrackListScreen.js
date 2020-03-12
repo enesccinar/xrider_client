@@ -15,7 +15,6 @@ const TrackListScreen = ({ isFocused }) => {
     const { state: { recording }, addLocation } = useContext(LocationContext)
 
     const callback = useCallback(location => {
-        console.log(location)
         addLocation(location, recording)
     }, [recording])
 
@@ -24,7 +23,7 @@ const TrackListScreen = ({ isFocused }) => {
     return (
         <View style={styles.container}>
             <NavigationEvents onWillFocus={fetchTracks} />
-            <Map tracks={tracks} />
+            <Map height="100%" tracks={tracks} />
             {err ? <Text>Please enable location services!</Text> : null}
             <FlatList
                 horizontal={true}
