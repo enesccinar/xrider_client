@@ -24,7 +24,9 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.louie.xrider",
+      "icon": "./assets/ios-icon.png"
     }
   }
 }
