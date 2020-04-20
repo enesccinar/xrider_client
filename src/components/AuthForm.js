@@ -47,8 +47,7 @@ const styles = StyleSheet.create({
     header: {
         fontSize: 24,
         fontWeight: "600",
-        marginBottom: 150,
-        marginTop: 100
+        marginBottom: 50
     },
     submit: {
         backgroundColor: '#5D3EA8',
