@@ -16,6 +16,7 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
                 onChangeText={setEmail}
                 autoCapitalize="none"
                 autoCorrect={false}
+                keyboardType="email-address"
                 style={styles.input}
                 placeholder="Email"
             />
