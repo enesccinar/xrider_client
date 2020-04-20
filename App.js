@@ -26,7 +26,7 @@ const trackRecordListFlow = createStackNavigator({
 })
 
 trackRecordListFlow.navigationOptions = {
-  title: 'Records',
+  title: 'Track List',
   tabBarOptions: {
     activeTintColor: '#6540F5',
   },
