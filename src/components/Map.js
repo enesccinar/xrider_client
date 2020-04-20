@@ -3,7 +3,7 @@ import { StyleSheet, ActivityIndicator, Image } from 'react-native'
 import MapView, { Marker, Polyline } from 'react-native-maps'
 import { Context as LocationContext } from '../context/LocationContext'
 
-const Map = ({ tracks, height }) => {
+const Map = ({ tracks, height, followsUserLocation }) => {
     const { state: { currentLocation, locations } } = useContext(LocationContext)
 
     if (!currentLocation)
@@ -11,21 +11,23 @@ const Map = ({ tracks, height }) => {
 
     return (
         <MapView
+            showsUserLocation={true}
+            followsUserLocation={followsUserLocation}
             height={height}
             style={styles.map}
             initialRegion={{
-                // latitude: 34.18656, longitude: -118.624184,
+                latitude: currentLocation.coords.latitude, longitude: currentLocation.coords.longitude,
                 // 34.187146, -118.623476
                 ...currentLocation.coords,
                 latitudeDelta: 0.01,
                 longitudeDelta: 0.01
             }}>
-            <Marker coordinate={{
+            {/* <Marker coordinate={{
                 latitude: currentLocation.coords.latitude,
                 longitude: currentLocation.coords.longitude,
             }}>
                 <Image source={require('../../assets/cursor.png')} style={{ height: 50, width: 50 }} />
-            </Marker>
+            </Marker> */}
             {
                 tracks
                     ? tracks.map((t) => {

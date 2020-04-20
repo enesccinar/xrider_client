@@ -25,7 +25,7 @@ const TrackRecordCreateScreen = ({ isFocused }) => {
                     <Spacer>
                         <Text style={styles.header}>Create a Trail Record</Text>
                     </Spacer>
-                    <Map height='50%' />
+                    <Map height='50%' followsUserLocation={true} />
                     {err ? <Text>Please enable location services!</Text> : null}
                     <Spacer>
                         <TrackForm />

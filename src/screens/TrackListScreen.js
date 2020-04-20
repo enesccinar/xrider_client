@@ -23,7 +23,7 @@ const TrackListScreen = ({ isFocused }) => {
     return (
         <View style={styles.container}>
             <NavigationEvents onWillFocus={fetchTracks} />
-            <Map height="100%" tracks={tracks} />
+            <Map height="100%" tracks={tracks} followsUserLocation={false} />
             {err ? <Text>Please enable location services!</Text> : null}
             <FlatList
                 horizontal={true}
