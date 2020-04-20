@@ -32,8 +32,8 @@ trackRecordListFlow.navigationOptions = {
   },
   tabBarIcon: ({ focused }) => (
     focused
-      ? <Image source={require('./assets/tracks.png')} />
-      : <Image source={require('./assets/tracks.png')} />
+      ? <Image width="25" height="25" source={require('./assets/tracks.png')} />
+      : <Image width="25" height="25" source={require('./assets/tracks-inactive.png')} />
   )
 }
 
