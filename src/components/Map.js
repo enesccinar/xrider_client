@@ -37,7 +37,7 @@ const Map = ({ tracks, height, followsUserLocation }) => {
             }
             {
                 locations
-                    ? <Polyline coordinates={locations.map(loc => loc.coords)} />
+                    ? <Polyline strokeColor="#6540F5" strokeWidth={6} coordinates={locations.map(loc => loc.coords)} />
                     : null
             }
         </MapView>

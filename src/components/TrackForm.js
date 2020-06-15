@@ -36,9 +36,11 @@ const TrackForm = () => {
             {
                 startTime
                     ? (
-                        <View style={styles.time}>
-                            <Image source={require('../../assets/clock.png')} />
-                            <Text style={styles.timetext}>Riding Time: {stopTime ? stopTime : new Date().getTime() - startTime}</Text>
+                        <View style={styles.specs}>
+                            <View style={styles.time}>
+                                <Image source={require('../../assets/clock.png')} />
+                                <Text style={styles.timetext}>Riding Time: {stopTime ? stopTime : new Date().getTime() - startTime}</Text>
+                            </View>
                         </View>
                     )
                     : null
@@ -53,6 +55,10 @@ const styles = StyleSheet.create({
         // marginTop: 50,
         backgroundColor: '#5D3EA8',
         height: 60
+    },
+    specs: {
+        flexDirection: 'column',
+        alignItems: 'flex-start'
     },
     time: {
         flexDirection: 'row',

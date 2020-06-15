@@ -25,11 +25,14 @@ const TrackRecordCreateScreen = ({ isFocused }) => {
                     <Spacer>
                         <Text style={styles.header}>Create a Trail Record</Text>
                     </Spacer>
-                    <Map height='50%' followsUserLocation={true} />
+                    <Map height='70%' followsUserLocation={true} />
                     {err ? <Text>Please enable location services!</Text> : null}
-                    <Spacer>
+                    {/* <Spacer>
                         <TrackForm />
-                    </Spacer>
+                    </Spacer> */}
+                    <View style={styles.form}>
+                        <TrackForm />
+                    </View>
                 </ScrollView>
             </View>
         </KeyboardAvoidingView>
@@ -57,14 +60,17 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
         marginTop: 32,
-        justifyContent: 'center',
-        marginLeft: 24,
-        marginRight: 24
+        justifyContent: 'center'
     },
     header: {
-        fontWeight: 'bold',
-        fontSize: 32,
+        fontSize: 24,
+        lineHeight: 29,
+        marginLeft: 24,
         marginBottom: 20
+    },
+    form: {
+        marginLeft: 24,
+        marginRight: 24
     }
 })
 
