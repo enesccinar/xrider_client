@@ -7,7 +7,7 @@ import useSaveTrackRecords from '../hooks/useSaveTrackRecords'
 // import Moment from 'react-moment'
 
 const TrackForm = () => {
-    const { state: { name, recording, locations, startTime, stopTime },
+    const { state: { name, recording, locations, startTime, stopTime, distance },
         startRecording,
         stopRecording,
         changeName
@@ -40,6 +40,18 @@ const TrackForm = () => {
                             <View style={styles.time}>
                                 <Image source={require('../../assets/clock.png')} />
                                 <Text style={styles.timetext}>Riding Time: {stopTime ? stopTime : new Date().getTime() - startTime}</Text>
+                            </View>
+                        </View>
+                    )
+                    : null
+            }
+            {
+                startTime
+                    ? (
+                        <View style={styles.specs}>
+                            <View style={styles.time}>
+                                <Image source={require('../../assets/clock.png')} />
+                                <Text style={styles.timetext}>KM: {distance}</Text>
                             </View>
                         </View>
                     )
